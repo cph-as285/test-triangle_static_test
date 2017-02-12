@@ -24,7 +24,7 @@ namespace TriangleReview
             Console.ReadKey();
         }
 
-        public static TriangleTypes GetTriangleType(int a, int b, int c)
+        private static TriangleTypes GetTriangleType(int a, int b, int c)
         {
             if (a == b && b == c)
                 return TriangleTypes.Equilateral;
