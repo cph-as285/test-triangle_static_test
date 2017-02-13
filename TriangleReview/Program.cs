@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TriangleReview
 {
@@ -10,18 +6,28 @@ namespace TriangleReview
     {
         public static void Main(string[] args)
         {
-            Console.Write("Enter a: ");
-            var a = int.Parse(Console.ReadLine());
-            Console.Write("Enter b: ");
-            var b = int.Parse(Console.ReadLine());
-            Console.Write("Enter c: ");
-            var c = int.Parse(Console.ReadLine());
+            int a;
+            int b;
+            int c;
+            do
+            {
+                Console.Clear();
 
-            var type = GetTriangleType(a, b, c);
+                a = GetIntFromConsole("Enter a: ");
+                b = GetIntFromConsole("Enter b: ");
+                c = GetIntFromConsole("Enter c: ");
 
-            Console.WriteLine(type);
+                Console.WriteLine(GetTriangleType(a, b, c));
 
-            Console.ReadKey();
+                Console.WriteLine("Press 'y' to run again");
+
+            } while (Console.ReadKey().KeyChar == 'y');
+        }
+
+        private static int GetIntFromConsole(string msg)
+        {
+            Console.Write(msg);
+            return int.Parse(Console.ReadLine());
         }
 
         private static TriangleTypes GetTriangleType(int a, int b, int c)
